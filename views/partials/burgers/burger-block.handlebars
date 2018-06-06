@@ -1,9 +1,12 @@
-<li>
-	{{name}}
+<li>	
+	{{burger.burger_name}}
 
-	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
-		{{#if devoured}}devoured!{{else}}eat up{{/if}}
-	</button>
-
-	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
+	<form action="/api/burgers/{{burger.id}}" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="devoured" value={{burger.devoured}}>
+		<input type="submit" class="change-sleep" data-id="{{burger.id}}" data-newsleep="{{sleep}}">
+			{{#if burger.devoured}}Regurgitate{{else}}eat up{{/if}}
+		</button>
+	</form>
+	
 </li>
