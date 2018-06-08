@@ -17,3 +17,9 @@ li {
 .form-group {
   margin-bottom: 5px;
 }
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

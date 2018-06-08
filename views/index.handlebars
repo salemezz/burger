@@ -1,32 +1,31 @@
-<h1>burgers!</h1>
+<div class="container">
+  <h1>Burgers</h1>
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>Non-Devoured Burgers</h2>
+      <ul>
+        {{#each burgers}} {{#unless this.devoured}} {{> burgers/burger-block burger=this}} {{/unless}} {{/each}}
+      </ul>
+    </div>
 
-<h2>burgers that are not devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      {{> burgers/burger-block burger=this}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>burgers that are devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      {{> burgers/burger-block burger=this}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a burger</h2>
-<form class="create-form" action="/api/burgers" method="post">
-
-  <div class="form-group">
-    <label for="ca">burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <div class="col-lg-6">
+      <h2>Gullet</h2>
+      <ul>
+        {{#each burgers}} {{#if this.devoured}} {{> burgers/burger-block burger=this}} {{/if}} {{/each}}
+      </ul>
+    </div>
   </div>
-
-  <button type="submit">Add burger</button>
-</form>
+  <div class="row">
+    <div class="col-lg-12 centered" style="padding-top:40px;">
+      <h4>Add a burger</h4>
+      <form class="create-form" action="/api/burgers" method="post">
+        <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="name">
+        </div>
+        <button class="btn btn-dark" type="submit">Add Burger</button>
+      </form>
+    </div>
+  </div>
+      <img style="width:400px; height:auto; float:right;" src="./assets/images/eat-this-burger.jpg">
+</div>
